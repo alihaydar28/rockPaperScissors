@@ -117,64 +117,73 @@ function playRound(userSelection , computerSelection){
 
     
 
-    btnRock.addEventListener('click', () => {
-        if(counter !=5){
-        comChoice=getComputerChoice();
-        [userScore, compScore] = playRound("rock",comChoice);
-        counter++;
-        roundNb.textContent="Round: "+counter;
+btnRock.addEventListener('click', () => {
+    if(counter !=5){
+    comChoice=getComputerChoice();
+    [userScore, compScore] = playRound("rock",comChoice);
+    counter++;
+    roundNb.textContent="Round: "+counter;
+    }else{
+        container.appendChild(content);
+        if(userScore>compScore){
+        alert ("user wins");
+        }else if(userScore<compScore){
+        alert ("comp wins");
         }else{
-            container.appendChild(content);
-            if(userScore>compScore){
-            alert ("user wins");
-            }else if(userScore<compScore){
-            alert ("comp wins");
-            }else{
-            alert("tie!");
-            }
+        alert("tie!");
         }
-    });
+    }
+});
 
+
+btnSci.addEventListener('click', () => {
+    if(counter !=5){
+    comChoice=getComputerChoice();
+    [userScore, compScore] = playRound("scissors",comChoice);
+    counter++;
+    roundNb.textContent="Round: "+counter;
+    }else{
+        container.appendChild(content);
+        if(userScore>compScore){
+        alert ("user wins");
+        }else if(userScore<compScore){
+        alert ("comp wins");
+        }else{
+        alert("tie!");
+        }
+    }
+});
+
+
+btnPaper.addEventListener('click', () => {
+    if(counter !=5){
+    comChoice=getComputerChoice();     
+    [userScore, compScore] = playRound("paper",comChoice);
+    counter++;
+    roundNb.textContent="Round: "+counter;
+    }else{
+        container.appendChild(content);
+        if(userScore>compScore){
+        alert ("user wins");
+        }else if(userScore<compScore){
+        alert ("comp wins");
+        }else{
+        alert("tie!");
+        }
+    }
+});
+
+
+function restart(){
+
+    userScoreUI.textContent=0;
+    computerScoreUI.textContent=0;
+    imagePlay.src = 'images/question.png';
+    imageComp.src = 'images/question.png';
+    roundNb.textContent="Round: "+0;
+    description.textContent="Press any button to start Game!";
     
-    btnSci.addEventListener('click', () => {
-        if(counter !=5){
-        comChoice=getComputerChoice();
-        [userScore, compScore] = playRound("scissors",comChoice);
-        counter++;
-        roundNb.textContent="Round: "+counter;
-        }else{
-            container.appendChild(content);
-            if(userScore>compScore){
-            alert ("user wins");
-            }else if(userScore<compScore){
-            alert ("comp wins");
-            }else{
-            alert("tie!");
-            }
-        }
-    });
-
-   
-    btnPaper.addEventListener('click', () => {
-        if(counter !=5){
-        comChoice=getComputerChoice();     
-        [userScore, compScore] = playRound("paper",comChoice);
-        counter++;
-        roundNb.textContent="Round: "+counter;
-        }else{
-            container.appendChild(content);
-            if(userScore>compScore){
-            alert ("user wins");
-            }else if(userScore<compScore){
-            alert ("comp wins");
-            }else{
-            alert("tie!");
-            }
-        }
-    });
-
-
-
+}
 
 
 
