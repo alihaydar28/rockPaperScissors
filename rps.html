@@ -5,10 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   
+<div class="all">
     <h1> this is a game of rock paper scissors</h1>
     
+    <div class="container">
+        <div class="item rock">
+            <h2>rock</h2>
+            <button id="rockbtn" class="btn ro"><img src="images/rock.png" alt="rock"></button>
+        </div>
+        <div class="item scissors">
+            <h2>scissors</h2>
+            <button class="btn sci"><img src="images/scissors.png" alt="scissors"></button>
+        </div>
+        <div class="item paper">
+            <h2>paper</h2>
+            <button class="btn pap"><img src="images/paper.png" alt="paper"></button>
+        </div>
+    </div>
+    <p class="round"> Round : <label for="">0</label></p>
+    <p class="description">Press any button to start Game!</p>
+    <div class="score">
+        <div class="it player">
+            <h2>player</h2>
+            <img src="images/question.png" alt="?">
+            <p class="playerScore">score: <label for="">0</label></p>
+        </div>
+        <div class="it computer">
+            <h2>computer</h2>
+            <img src="images/question.png" alt="?">
+            <p class="computerScore">score: <label for="">0</label></p>
+        </div>
+    </div>
+
+</div> 
+
 </body>
 </html>

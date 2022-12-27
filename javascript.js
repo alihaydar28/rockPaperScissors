@@ -53,15 +53,16 @@ function game(){
    
     let userScore=0;
     let compScore=0;
-    for(let i=0; i<5;i++){
-        number= String(prompt("enter a choice"));
+    /*for(let i=0; i<5;i++){*/
+        //number= String(prompt("enter a choice"));
+        let number="rock";
         comChoice=getComputerChoice();
-        console.log("round: "+ parseInt(i+1) );
+        console.log("round: "+ parseInt(1) );
         console.log("computer choice :"+comChoice);
         console.log("Your choice : "+number);
         [userScore, compScore] = playRound(number,comChoice,userScore,compScore);
         console.log("*********************");
-    }
+    //}
     console.log("*********************");
     console.log("final Score :  user:"+userScore+"  computer:"+compScore+"." );
     if(userScore>compScore){
@@ -73,5 +74,21 @@ function game(){
     }
 }
 
-game();
+//game();
+
+const btnRock = document.querySelector("#rockbtn");
+btnRock.addEventListener('click', () => {
+  alert("rock btn");
+});
+
+const btnSci = document.querySelector(".sci");
+btnSci.addEventListener('click', () => {
+  alert("scissors btn");
+});
+
+const btnPaper = document.getElementsByClassName("pap")[0];
+btnPaper.addEventListener('click', () => {
+  alert("paper btn");
+});
+
 
