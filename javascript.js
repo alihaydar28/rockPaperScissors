@@ -1,3 +1,23 @@
+let userChoice1="";
+let userScore=0;
+let compScore=0;
+let counter=0;
+const btnRock = document.querySelector("#rockbtn");
+const btnSci = document.querySelector(".sci");
+const btnPaper = document.getElementsByClassName("pap")[0];
+const userScoreUI=document.getElementById("playerScore");
+const computerScoreUI=document.getElementById("computerScore");
+const roundNb=document.getElementById("rnd");
+const description=document.getElementById("desc");
+
+const imagePlay = document.getElementById('imagePlayer');
+const imageComp = document.getElementById('imageComputer');
+
+const container = document.querySelector('#btnToAdd');
+const content = document.createElement('button');
+content.classList.add('restartBtn');
+content.textContent = 'Restart';
+
 
 
 function getRandomInt(max) {
@@ -15,6 +35,9 @@ function playRound(userSelection , computerSelection){
     if(userSelection === computerSelection){
         console.log("tie");
         description.textContent=" it's a TIE !";
+        imagePlay.src = 'images/'+userSelection+'.png';
+        imageComp.src = 'images/'+userSelection+'.png';
+
     }
     else if(userSelection==="paper"){
         if(computerSelection==="rock"){
@@ -25,6 +48,8 @@ function playRound(userSelection , computerSelection){
             nb=nb+1;
             userScoreUI.textContent=nb;
             description.textContent="paper beats rock, user wins!";
+            imagePlay.src = 'images/paper.png';
+            imageComp.src = 'images/rock.png';
         }
         else if(computerSelection==="scissors"){
             console.log("computer wins");
@@ -34,6 +59,8 @@ function playRound(userSelection , computerSelection){
             nb=nb+1;
             computerScoreUI.textContent=nb;
             description.textContent="scissors beats paper, computer wins!";
+            imagePlay.src = 'images/paper.png';
+            imageComp.src = 'images/scissors.png';
         }
     }
     else if(userSelection==="rock"){
@@ -45,6 +72,8 @@ function playRound(userSelection , computerSelection){
             nb=nb+1;
             computerScoreUI.textContent=nb;
             description.textContent="paper beats rock, computer wins!";
+            imagePlay.src = 'images/rock.png';
+            imageComp.src = 'images/paper.png';
         }
         else if(computerSelection==="scissors"){
             console.log("You wins");
@@ -54,6 +83,8 @@ function playRound(userSelection , computerSelection){
             nb=nb+1;
             userScoreUI.textContent=nb;
             description.textContent="rock beats scissors, user wins!";
+            imagePlay.src = 'images/rock.png';
+            imageComp.src = 'images/scissors.png';
         }
     }
     else if(userSelection==="scissors"){
@@ -65,6 +96,8 @@ function playRound(userSelection , computerSelection){
             nb=nb+1;
             userScoreUI.textContent=nb;
             description.textContent="scissors beats paper, user wins!";
+            imagePlay.src = 'images/scissors.png';
+            imageComp.src = 'images/paper.png';
         }
         else if(computerSelection==="rock"){
             console.log("computer wins");
@@ -74,26 +107,15 @@ function playRound(userSelection , computerSelection){
             nb=nb+1;
             computerScoreUI.textContent=nb;
             description.textContent="rock beats scissors, computer wins!";
+            imagePlay.src = 'images/scissors.png';
+            imageComp.src = 'images/rock.png';
         }
     }
     console.log("Scores: user:"+userScore+"  || computer:"+compScore);
     return [userScore, compScore];
 }
 
-
-
-
-    let userChoice1="";
-    let userScore=0;
-    let compScore=0;
-    let counter=0;
-    const btnRock = document.querySelector("#rockbtn");
-    const btnSci = document.querySelector(".sci");
-    const btnPaper = document.getElementsByClassName("pap")[0];
-    const userScoreUI=document.getElementById("playerScore");
-    const computerScoreUI=document.getElementById("computerScore");
-    const roundNb=document.getElementById("rnd");
-    const description=document.getElementById("desc");
+    
 
     btnRock.addEventListener('click', () => {
         if(counter !=5){
@@ -102,7 +124,14 @@ function playRound(userSelection , computerSelection){
         counter++;
         roundNb.textContent="Round: "+counter;
         }else{
-            alert ("game over");
+            container.appendChild(content);
+            if(userScore>compScore){
+            alert ("user wins");
+            }else if(userScore<compScore){
+            alert ("comp wins");
+            }else{
+            alert("tie!");
+            }
         }
     });
 
@@ -114,7 +143,14 @@ function playRound(userSelection , computerSelection){
         counter++;
         roundNb.textContent="Round: "+counter;
         }else{
-            alert ("game over");
+            container.appendChild(content);
+            if(userScore>compScore){
+            alert ("user wins");
+            }else if(userScore<compScore){
+            alert ("comp wins");
+            }else{
+            alert("tie!");
+            }
         }
     });
 
@@ -126,7 +162,14 @@ function playRound(userSelection , computerSelection){
         counter++;
         roundNb.textContent="Round: "+counter;
         }else{
-            alert ("game over");
+            container.appendChild(content);
+            if(userScore>compScore){
+            alert ("user wins");
+            }else if(userScore<compScore){
+            alert ("comp wins");
+            }else{
+            alert("tie!");
+            }
         }
     });
 

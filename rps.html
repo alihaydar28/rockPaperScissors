@@ -13,7 +13,7 @@
 <div class="all">
     <h1> this is a game of rock paper scissors</h1>
     
-    <div class="container">
+    <div id="container" class="container">
         <div class="item rock">
             <h2>rock</h2>
             <button id="rockbtn" class="btn ro"><img src="images/rock.png" alt="rock"></button>
@@ -27,19 +27,20 @@
             <button class="btn pap"><img src="images/paper.png" alt="paper"></button>
         </div>
     </div>
+    <div id="btnToAdd"></div>
     <p id="rnd"class="round"> Round : <label for="">0</label></p>
     <p id="desc" class="description" style="color: red;">Press any button to start Game!</p>
     <div class="score">
         <div class="it player">
             <h2>player</h2>
-            <img src="images/question.png" alt="?">
+            <img id="imagePlayer" src="images/question.png" alt="?">
             <br><br>
             <p class="text" style="display:inline ;">score: </p>
             <p id="playerScore" style="display:inline;">0</p>
         </div>
         <div class="it computer">
             <h2>computer</h2>
-            <img src="images/question.png" alt="?">
+            <img id="imageComputer" src="images/question.png" alt="?">
             <br><br>
             <p class="text" style="display:inline ;">score: </p>
             <p id="computerScore" style="display:inline;">0</p>
