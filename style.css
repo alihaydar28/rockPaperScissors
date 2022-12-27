@@ -14,7 +14,7 @@ body{
     flex-direction: column;
     justify-content:start;
     align-items: center;
-    margin-top: 30px;
+    
     width: 80%;
     margin-left:10% ;
     margin-right: 10%;
@@ -100,7 +100,7 @@ img{
     font-weight: 900;
 }
 
-.playerScore,.computerScore{
+#playerScore,#computerScore,.text,.text{
     font-size: 25px;
     font-weight: bold;
 }
