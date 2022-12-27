@@ -9,7 +9,7 @@ function getComputerChoice(){
     randomNumber=getRandomInt(3);
     return choice[randomNumber];
 }
-s
+
 function playRound(userSelection , computerSelection, userScore, compScore){
     
     if(userSelection === computerSelection){
