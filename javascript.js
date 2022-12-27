@@ -14,9 +14,12 @@ const imagePlay = document.getElementById('imagePlayer');
 const imageComp = document.getElementById('imageComputer');
 
 const container = document.querySelector('#btnToAdd');
-const content = document.createElement('button');
-content.classList.add('restartBtn');
-content.textContent = 'Restart';
+const restartBtn = document.createElement('button');
+restartBtn.classList.add('restartBtn');
+restartBtn.textContent = 'Restart';
+restartBtn.style.cssText = 'color: white; background: red;'
++'height:50px;width:100px;margin-top:20px;border: none;cursor: pointer;'+
+'text-decoration: none;outline: none;border-radius: 15px;'; 
 
 
 
@@ -115,75 +118,63 @@ function playRound(userSelection , computerSelection){
     return [userScore, compScore];
 }
 
-    
-
-btnRock.addEventListener('click', () => {
-    if(counter !=5){
-    comChoice=getComputerChoice();
-    [userScore, compScore] = playRound("rock",comChoice);
-    counter++;
-    roundNb.textContent="Round: "+counter;
-    }else{
-        container.appendChild(content);
-        if(userScore>compScore){
-        alert ("user wins");
-        }else if(userScore<compScore){
-        alert ("comp wins");
-        }else{
-        alert("tie!");
-        }
-    }
-});
-
-
-btnSci.addEventListener('click', () => {
-    if(counter !=5){
-    comChoice=getComputerChoice();
-    [userScore, compScore] = playRound("scissors",comChoice);
-    counter++;
-    roundNb.textContent="Round: "+counter;
-    }else{
-        container.appendChild(content);
-        if(userScore>compScore){
-        alert ("user wins");
-        }else if(userScore<compScore){
-        alert ("comp wins");
-        }else{
-        alert("tie!");
-        }
-    }
-});
-
-
-btnPaper.addEventListener('click', () => {
-    if(counter !=5){
-    comChoice=getComputerChoice();     
-    [userScore, compScore] = playRound("paper",comChoice);
-    counter++;
-    roundNb.textContent="Round: "+counter;
-    }else{
-        container.appendChild(content);
-        if(userScore>compScore){
-        alert ("user wins");
-        }else if(userScore<compScore){
-        alert ("comp wins");
-        }else{
-        alert("tie!");
-        }
-    }
-});
-
 
 function restart(){
-
+    userChoice1="";
+    userScore=0;
+    compScore=0;
+    counter=0;
     userScoreUI.textContent=0;
     computerScoreUI.textContent=0;
     imagePlay.src = 'images/question.png';
     imageComp.src = 'images/question.png';
     roundNb.textContent="Round: "+0;
     description.textContent="Press any button to start Game!";
+    container.removeChild(restartBtn);  
     
 }
+
+function ActionToDo(x){
+    if(counter !=5){
+        comChoice=getComputerChoice();     
+        [userScore, compScore] = playRound(x,comChoice);
+        counter++;
+        roundNb.textContent="Round: "+counter;
+        }else{
+            container.appendChild(restartBtn);
+            if(userScore>compScore){
+            alert ("user wins");
+            }else if(userScore<compScore){
+            alert ("comp wins");
+            }else{
+            alert("tie!");
+            }
+        }
+}
+    
+
+btnRock.addEventListener('click', () => {
+  
+    ActionToDo("rock");
+});
+
+
+btnSci.addEventListener('click', () => {
+   
+    ActionToDo("scissors");
+});
+
+
+btnPaper.addEventListener('click', () => {
+    
+    ActionToDo("paper");
+});
+
+restartBtn.addEventListener('click', () => {
+    restart();
+});
+
+
 
 
 
