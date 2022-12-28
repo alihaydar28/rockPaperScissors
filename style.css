@@ -104,3 +104,11 @@ img{
     font-size: 25px;
     font-weight: bold;
 }
+
+.footer{
+    font-size: 20px;
+    font-weight: bold;
+    color:darkblue;
+    margin-top: 20px;
+
+}
